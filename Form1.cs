@@ -30,17 +30,45 @@ namespace fukuv0608
             {
                 vy = -Math.Abs(vy + (vy / 10));
             }
+
+            // 変数mposを宣言して、マウスのフォーム座標を取り出す
+            //// 1. MousePositionにマウス座標のスクリーン左上からのX、Yが入っている
+            Text = $"{MousePosition.X},{MousePosition.Y}";
+            //// 2. 変数fposを宣言して、PointToClient()でスクリーン座標をフォーム座標に変換
+            var fpos = PointToClient(MousePosition);
+
+            // ラベルに座標を表示
+            //// 変換したフォーム座標は、fpos.X、fpos.Yで取り出せる
+            label1.Text = $"{fpos.X},{fpos.Y}";
+
+            //label2.Widthでラベルの幅
+            //label2.Heigtでラベルの高さ
+            //マウスカーソルの位置がLabel2の中央になるようにする
+            label2.Left = fpos.X - label2.Width / 2;
+            label2.Top = fpos.Y - label2.Height / 2;
+            if ((fpos.X > label1.Left)&&(fpos.X < label1.Right)&&
+                (fpos.Y>label1.Top)&&(fpos.Y<label1.Bottom))
+            {
+
+                timer1.Enabled = false;
+            }
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             timer1.Enabled = false;
             label1.Text = "杉本尚輝";
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
