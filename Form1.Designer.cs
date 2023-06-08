@@ -32,6 +32,7 @@
             label1 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             label2 = new Label();
+            label3 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -47,7 +48,7 @@
             // timer1
             // 
             timer1.Enabled = true;
-            timer1.Interval = 50;
+            timer1.Interval = 1;
             timer1.Tick += timer1_Tick;
             // 
             // label2
@@ -60,11 +61,22 @@
             label2.Text = "w";
             label2.Click += label2_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(696, 46);
+            label3.Name = "label3";
+            label3.Size = new Size(39, 15);
+            label3.TabIndex = 1;
+            label3.Text = "time:0";
+            label3.Click += label2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(834, 450);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Form1";
@@ -79,5 +91,6 @@
         private Label label1;
         private System.Windows.Forms.Timer timer1;
         private Label label2;
+        private Label label3;
     }
 }

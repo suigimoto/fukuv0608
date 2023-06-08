@@ -1,12 +1,17 @@
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+
 namespace fukuv0608
 {
     public partial class Form1 : Form
     {
-        int vx = -5;
-        int vy = -5;
+        int itime = 0;
+        int vx = rand.Next(-5, 5);
+        int vy = rand.Next(-5, 5);
+        static Random rand = new Random();
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -46,14 +51,15 @@ namespace fukuv0608
             //マウスカーソルの位置がLabel2の中央になるようにする
             label2.Left = fpos.X - label2.Width / 2;
             label2.Top = fpos.Y - label2.Height / 2;
-            if ((fpos.X > label1.Left)&&(fpos.X < label1.Right)&&
-                (fpos.Y>label1.Top)&&(fpos.Y<label1.Bottom))
+            if ((fpos.X >= label1.Left) && (fpos.X <= label1.Right) &&
+                (fpos.Y >= label1.Top) && (fpos.Y <= label1.Bottom))
             {
 
                 timer1.Enabled = false;
             }
+            itime++;
+            label3.Text = $"time:{itime}";
         }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
