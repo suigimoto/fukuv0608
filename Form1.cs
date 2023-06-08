@@ -5,13 +5,14 @@ namespace fukuv0608
     public partial class Form1 : Form
     {
         int itime = 0;
-        int vx = rand.Next(-5, 5);
-        int vy = rand.Next(-5, 5);
+        int vx = rand.Next(80, 99);
+        int vy = rand.Next(-5,6);
         static Random rand = new Random();
         public Form1()
         {
             InitializeComponent();
-
+            label1.Left = rand.Next(ClientSize.Width - label1.Width);
+            label1.Top = rand.Next(ClientSize.Height - label1.Height);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
